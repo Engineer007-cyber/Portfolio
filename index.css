@@ -64,11 +64,49 @@ nav a:hover,.active{
     color: var(--main-color);
 }
 
-#menu{
-    font-size: 24px;
+/* Icons styling - Hide by default (desktop view) */
+#menuOpen,#menuClose{
     display: none;
 }
 
+/* Media queries for mobile menu icons */
+@media screen and (max-width: 992px){
+    /* Only show menu icons on mobile/tablet */
+    #menuOpen {
+        display: block;
+        cursor: pointer;
+    }
+    
+    /* Show close icon when menu is active */
+    header.menu-active #menuOpen {
+        display: none;
+    }
+    
+    header.menu-active #menuClose {
+        display: block;
+        cursor: pointer;
+    }
+    
+    /* Mobile nav styles */
+    nav {
+        display: none;
+    }
+    
+    nav.active {
+        display: block;
+    }
+}
+@media screen and (max-width: 768px){
+    #menuOpen, #menuClose{
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+}
+@media screen and (max-width: 576px){
+    #menuOpen, #menuClose{
+        font-size: 1.5rem;
+    }
+}
 
 .bars-box{
     position: absolute;

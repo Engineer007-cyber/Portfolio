@@ -3,6 +3,45 @@ const logoLink = document.querySelector(".logo");
 const sections = document.querySelectorAll("section");
 const navBar = document.querySelectorAll("header nav");
 
+// Mobile menu toggle functionality
+const menuOpen = document.querySelector('#menuOpen');
+const menuClose = document.querySelector('#menuClose');
+const nav = document.querySelector('header nav');
+const header = document.querySelector('header');
+
+// Toggle menu open
+menuOpen.addEventListener('click', () => {
+    nav.classList.add('active');
+    header.classList.add('menu-active');
+});
+
+// Toggle menu close
+menuClose.addEventListener('click', () => {
+    nav.classList.remove('active');
+    header.classList.remove('menu-active');
+});
+
+// Close menu when clicking a link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+            nav.classList.remove('active');
+            header.classList.remove('menu-active');
+        }
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 992 && 
+        !nav.contains(e.target) && 
+        !menuOpen.contains(e.target) && 
+        !menuClose.contains(e.target)) {
+        nav.classList.remove('active');
+        header.classList.remove('menu-active');
+    }
+});
+
 
 
 
